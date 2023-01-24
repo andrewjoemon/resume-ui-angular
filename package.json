@@ -11,6 +11,7 @@
     "deploy":"gh-pages -d build"
   },
   "private": true,
+  "homepage": "https://andrewjoemon.github.io/resume-ui-angular/",
   "dependencies": {
     "@angular/animations": "^15.0.0",
     "@angular/cdk": "^15.1.1",
