@@ -1,0 +1,43 @@
+<ajui-navbar></ajui-navbar>
+<ajui-navbar></ajui-navbar>
+<ajui-navbar></ajui-navbar>
+<div [hidden]="showit">
+    <h1>{{frm}}</h1>
+    Number of Templates:
+    <div [ngStyle]="{'background-color':fm.age?'red':'steelblue'}" [innerText]="NumberOfTemplates">
+
+    </div>
+</div>
+<button (click)="toggle()">{{formstart}}</button>
+{{fm?.age??"no form"}}
+<!--{{flist|json}}-->
+<div *ngIf="selectedForm">
+    {{selectedForm|json}}
+</div>
+
+<!-- <div *ngIf="fm.age>0"> -->
+<!-- <div *ngIf="showit">
+    default forms
+    <ajui-form-list [forms]="flist" [title]="'Forms Here'" (selectedFormEvent)="selectForm($event)"></ajui-form-list>
+    <div>
+        <button (click)="addForm()">Add Form</button>
+    </div>
+    
+</div> -->
+
+<div>
+    <accordion>
+        <accordion-group heading="Static Header">
+            This content is straight in the template.
+        </accordion-group>
+        <accordion-group heading="Another group">
+            <p>Some content</p>
+        </accordion-group>
+        <accordion-group heading="Another group">
+            <p>Some content</p>
+        </accordion-group>
+        <accordion-group heading="Another group">
+            <p>Some content</p>
+        </accordion-group>
+    </accordion>
+</div>

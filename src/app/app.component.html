@@ -1,0 +1,35 @@
+<h1>Hello World</h1>
+
+<h1>Hi this is {{c}}</h1>
+<h1>Hey {{data.a}} {{data.b}}</h1>
+<div [style.background-color]="bgcolor()">
+  <p>say your name:</p> <input type="name" value="{{c}}"/>
+</div>
+<rating [(ngModel)]="rate" [max]="max" [readonly]="isReadonly"></rating>
+<div class="card">
+    <pre class="card-block card-header" style="margin:15px 0;">Rate: <b>{{rate}}</b> </pre>
+</div>
+<div [ngSwitch]="role">
+  <div *ngSwitchCase="'user'">
+    Welcome User
+  </div>
+  <div *ngSwitchCase="'admin'">
+    <!-- <ajui-form></ajui-form> -->
+    <ajui-container>
+      <ajui-form></ajui-form>
+      <ajui-template></ajui-template>
+      <h1>This is from Container itself</h1>
+    </ajui-container>
+    
+  </div>
+  <div *ngSwitchDefault>
+    You are not authorised to view this page
+  </div>
+  
+</div>
+<!-- <div>
+  <ng-template #user></ng-template>
+</div>  -->
+<div #name>
+
+</div>

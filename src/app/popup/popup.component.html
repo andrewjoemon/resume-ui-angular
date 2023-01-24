@@ -1,0 +1,9 @@
+<div mat-dialog-actions>
+    default forms
+    <ajui-form-list [forms]="fl" [title]="'Forms Here'" (selectedFormEvent)="selectForm($event)"></ajui-form-list>
+    <div>
+        <button (click)="addForm()">Add Form</button>
+        <button mat-button mat-dialog-close>Stop Form</button>
+    </div>
+    
+</div>

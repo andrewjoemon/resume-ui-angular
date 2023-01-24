@@ -1,0 +1,24 @@
+<p>{{title}}</p>
+<div>
+
+</div>
+<table>
+    <tr>
+        <th>Index</th>
+        <th>FormNumber</th>
+        <th>Even/Odd</th>
+        <th>Ftype</th>
+        <th>Date-of-Both</th>
+        <th>Rating</th>
+        <th>Select </th>
+    </tr>
+    <tr [ngClass]="e?'even':'odd'" *ngFor="let fm of forms, let e=even, let o=odd, let i=index">
+        <td>{{i | percent}}</td>
+        <td>{{fm.formNumber}}</td>
+        <td>{{e?"even":"odd"}}</td>
+        <td>{{fm.ftype | titlecase}}</td>
+        <td>{{fm.dateofbirth | date}}</td>
+        <td>{{fm.rating | number:'1.1-2' :'en-us'}}</td>
+        <td><button class="btn btn-primary" (click)="selectForm(fm)">selectt</button></td>
+    </tr>
+</table>

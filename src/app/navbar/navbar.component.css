@@ -1,0 +1,44 @@
+.t46{
+
+    background-color:rgb(255, 228, 196,0.7);
+    background-repeat: repeat;
+    width: 100%;
+    margin:0px;  
+    justify-content: space-between;
+    overflow: hidden;
+    position: fixed;
+    top:0;
+
+    
+}
+.t46:hover{
+    background-color:rgb(255, 228, 196,1);;
+}
+#t47{    
+    height: 40px;
+    width: 180px;
+    font-size:25px;
+    font-weight:bold;
+    font-variant: small-caps;
+    color:darkblue;
+    font-family:serif;
+    padding: 10px 10px 5px 10px;
+    text-align: center;
+    display: block;  
+    float: left;     
+    list-style-type: none;    
+    text-decoration: none;
+    border-style:groove;
+    border-radius: 30%;
+    border-width: 3px;
+    border-color:darkslategray;
+    background-color: rgb(245,245,245,0.5);
+    
+    
+}
+#t47:hover{
+    color:rgb(3, 52, 3);
+    opacity: 80%;
+    background-color: rgb(245,245,245,1);
+
+}
