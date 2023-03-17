@@ -3,7 +3,7 @@ export interface form{
     age: number;
 }
 export interface formlist{
-    formNumber:string,
+    formNumber?:string,
     ftype:string;
     photo:string;
     dateofbirth:Date;

@@ -1,5 +1,5 @@
-<ajui-navbar></ajui-navbar>
-<ajui-navbar></ajui-navbar>
+<!-- <ajui-navbar></ajui-navbar>
+<ajui-navbar></ajui-navbar> -->
 <ajui-navbar></ajui-navbar>
 <div [hidden]="showit">
     <h1>{{frm}}</h1>
@@ -14,6 +14,10 @@
 <div *ngIf="selectedForm">
     {{selectedForm|json}}
 </div>
+<button routerLink="create-resume">create resume</button>
+
+<router-outlet></router-outlet>
+
 
 <!-- <div *ngIf="fm.age>0"> -->
 <!-- <div *ngIf="showit">
@@ -25,7 +29,9 @@
     
 </div> -->
 
-<div>
+
+
+<!-- <div>
     <accordion>
         <accordion-group heading="Static Header">
             This content is straight in the template.
@@ -40,4 +46,4 @@
             <p>Some content</p>
         </accordion-group>
     </accordion>
-</div>
+</div> -->

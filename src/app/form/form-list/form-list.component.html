@@ -12,7 +12,7 @@
         <th>Rating</th>
         <th>Select </th>
     </tr>
-    <tr [ngClass]="e?'even':'odd'" *ngFor="let fm of forms, let e=even, let o=odd, let i=index">
+    <tr [ngClass]="e?'even':'odd'" *ngFor="let fm of forms | filter:rating; let e=even, let o=odd, let i=index">
         <td>{{i | percent}}</td>
         <td>{{fm.formNumber}}</td>
         <td>{{e?"even":"odd"}}</td>
@@ -20,5 +20,6 @@
         <td>{{fm.dateofbirth | date}}</td>
         <td>{{fm.rating | number:'1.1-2' :'en-us'}}</td>
         <td><button class="btn btn-primary" (click)="selectForm(fm)">selectt</button></td>
+        <td><button class="btn btn-primary" [routerLink]="['/submitroute',fm.formNumber]" >Submit this </button></td>
     </tr>
 </table>
