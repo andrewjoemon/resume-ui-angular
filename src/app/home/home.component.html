@@ -1,0 +1,27 @@
+<div [ngSwitch]="role">
+    <div *ngSwitchCase="'user'">
+      Welcome User
+    </div>
+    <div *ngSwitchCase="'admin'">
+      <!-- <ajui-form></ajui-form>
+      <ajui-container>
+        <ajui-form></ajui-form>
+        <ajui-template></ajui-template>
+        <h1>This is from Container itself</h1>
+      </ajui-container>
+       -->
+      <ajui-navbar></ajui-navbar>
+  
+      <h1>Why does it render twice?</h1>
+      <h1>WELCOME TO RESUME UI</h1>
+      <h1> app created successfully</h1>
+
+      <button class="btn btn-primary" routerLink="form/create-resume">create-resume</button>
+       <button class="btn btn-primary" routerLink="login">Login</button>
+  
+  
+    </div>
+    <div *ngSwitchDefault>
+      You are not authorised to view this page
+    </div>
+  </div>

@@ -1,0 +1,189 @@
+<h1>
+{{submitForm.value|json}}
+{{submitForm.pristine|json}}
+{{submitForm.dirty|json}}
+</h1>
+
+<div>
+    <button type="button" mat-raised-button color="primary" (click)="addPassport()">Add Passport</button>
+</div>
+<div>
+    <button type="button" mat-raised-button color="primary" (click)="deletePassport()">Delete Passport</button>
+</div>
+
+<form class="form1" [formGroup]="submitForm" (ngSubmit)="submit2()">
+
+    <div *ngIf="submitForm.get('passport')">
+    <mat-form-field>
+        <mat-label>Passport</mat-label>
+        <input type="text" matInput formControlName="passport" placeholder="Enter passport no."/>
+    </mat-form-field>
+    </div>
+    <mat-form-field class="formfield">
+        <mat-label>Form Id</mat-label>
+        <input type="text" formControlName="formid" matInput placeholder="Enter Form Id"/>
+    </mat-form-field>
+    <br>
+
+
+    <mat-form-field class="formfield">
+        <mat-label>Name</mat-label>
+        <input type="text" formControlName="name" matInput placeholder="Enter your name">
+          {{submitForm.get('name')?.errors|json}}
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="formfield">
+        <mat-label>Email</mat-label>
+        <input type="email" formControlName="email" matInput placeholder="Enter Email Id">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="formfield">
+        <mat-label>Amount</mat-label>
+        <input type="number" formControlName="amount" matInput placeholder="Enter Amount">
+        <!-- {{submitForm.get('amount')?.errors|json}} -->
+        <mat-error class="formcontrolerror"*ngIf="submitForm.get('amount')?.hasError('max')">
+            Amount should be less than 500
+        </mat-error>
+    </mat-form-field>
+    
+    <br>
+
+    <mat-form-field class="formfield">
+        <mat-label>Mobile No.</mat-label>
+        <input type="number" formControlName="mobilenumber" matInput placeholder="Enter Mobile Number">
+    </mat-form-field>  
+    <br>  
+
+    <mat-form-field class="formfield">
+        <mat-label>Form Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="formDate" placeholder="Enter Form Date">
+        <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="formfield">
+        <mat-label>Check in Date</mat-label>
+        <input matInput [matDatepicker]="picker1" formControlName="checkinDate" placeholder="Enter Check In Date">
+        <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="formfield">
+        <mat-label>Check Out Date</mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="checkoutDate" placeholder="Enter Check Out Date">
+        <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+        {{submitForm.get('checkoutDate')?.errors|json}}
+    </mat-form-field>
+    <br>
+
+    <div formGroupName="address">
+        <mat-accordion class="accordian-class" multi >
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Address 
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        Fill the address details
+                    </mat-panel-description>
+                    <mat-icon>account_circle</mat-icon>                    
+                </mat-expansion-panel-header>
+                <mat-form-field class="formfield">
+                    <mat-label>Address Line 1</mat-label>
+                    <textarea matInput formControlName="addressline1" placeholder="Enter address line 1"></textarea>
+                    <mat-error class="formcontrolerror"*ngIf="submitForm.get('address.addressline1')?.hasError('required')">
+                        Please enter address 1
+                    </mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field class="formfield">
+                    <mat-label>Address Line 2</mat-label>
+                    <textarea  matInput formControlName="addressline1" placeholder="Enter address line 1"></textarea>
+                </mat-form-field>
+                <br>
+
+                <mat-form-field class="formfield">
+                    <mat-label>City</mat-label>
+                    <input type="text" matInput formControlName="city" placeholder="Enter city" />
+                </mat-form-field>
+                <br>
+
+                <mat-form-field class="formfield">
+                    <mat-label>State</mat-label>
+                    <input type="text" matInput formControlName="state" placeholder="Enter state" />
+                </mat-form-field>
+                <br>
+
+                <mat-form-field class="formfield">
+                    <mat-label>Country</mat-label>
+                    <input type="text" matInput formControlName="country" placeholder="Enter country" />
+                </mat-form-field>
+                <br>
+
+                <mat-form-field class="formfield">
+                    <mat-label>ZipCode</mat-label>
+                    <input type="number" matInput formControlName="zipcode" placeholder="Enter pincode" />
+                </mat-form-field>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+   
+    </div>
+
+    <div>
+        <button mat-raised-button color="primary" type="button" (click)="addguest()">Add Guest</button>
+    </div>
+    <div formArrayName="guests">
+        <mat-accordion class="accordian-class" multi >
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Guest 
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                    
+                    <div *ngFor="let guests of guests.controls; let i=index;">
+                        <div [formGroupName]="i">
+                        <mat-form-field class="formfield">
+                            <mat-label>Name</mat-label>
+                            <input matInput formControlName="name" type="text" placeholder="name"/>
+                            <mat-error class="formcontrolerror"*ngIf="submitForm.get(['guests',i,'name'])?.hasError('required')">
+                                Please enter Guest Name
+                            </mat-error>
+                        </mat-form-field >
+                        <br>
+                        <mat-form-field class="formfield">
+                            <mat-label>Age</mat-label>
+                            <input matInput formControlName="age" type="number" placeholder="Age"/>
+                        </mat-form-field>
+                         
+                        </div>
+                        <div>
+                            <button type="button" mat-raised-button color="primary" (click)="removeGuest(i)">Remove Guest</button>
+                        </div>
+                                   
+              
+            
+                    </div>       
+                    
+                </mat-expansion-panel>
+                </mat-accordion>
+        
+
+    </div>
+    <div>
+        <mat-checkbox formControlName="tnc">Terms & Conditions</mat-checkbox>
+    </div>
+    <div>
+    <button [disabled]=submitForm.invalid mat-raised-button color="primary">Submit</button>
+    </div>
+</form>
+

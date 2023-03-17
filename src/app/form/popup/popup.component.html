@@ -1,0 +1,27 @@
+{{ratingFilter|json}}
+<div>
+    <input type="number" matInput placeholder="Enter Price to filter" [formControl]="ratingFilter"/>
+</div>
+<div *ngIf="forms$|async as forms1" mat-dialog-actions>
+    default forms
+    <!-- <ajui-form-list [forms]="fl" [title]="'Forms Here'" (selectedFormEvent)="selectForm($event)"></ajui-form-list> -->
+    <ajui-form-list [forms]="forms1" [rating]="ratingFilter.value" [title]="'Forms Here'" (selectedFormEvent)="selectForm($event)"></ajui-form-list>
+    <div>
+        <button (click)="addForm()">Add Form</button>
+        <button (click)="editForm()">Edit Form</button>
+        <button (click)="deleteForm()">Delete Form</button>
+        <h1>
+            {{totalBytes}} loaded
+        </h1>
+
+        <button mat-button mat-dialog-close>Stop Form</button>
+    </div>
+
+
+    <!-- {{forms$|async|json}}
+     -->
+</div>
+<h1>{{getError$|async}}</h1>
+<h1>Number of Forms : {{formsCount$|async}}</h1>
+
+

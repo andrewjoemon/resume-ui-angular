@@ -1,0 +1,10 @@
+h1{
+    margin-top: 50px;
+    color:gainsboro;
+}
+.formfield{
+    width: max-content;
+}
+mat-error{
+    width: max-content;
+}

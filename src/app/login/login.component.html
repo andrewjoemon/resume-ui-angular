@@ -1,0 +1,15 @@
+<form #loginform="ngForm" (ngSubmit)="submit(loginform)"  >
+    <div class="form-group">
+        <input #emailcontrol="ngModel" ajuiEmailvalidator ajuiHover="lightgreen" [(ngModel)]="email" class="form-control" required type="email" name="email" placeholder="enter email" />
+        <div *ngIf="emailcontrol.errors?.['invalidEmail']">
+            Please enter valid email id
+        </div>
+    </div>
+    <div class="form-group">
+        <input ajuiHover="lightblue" [(ngModel)]="password" class="form-control" required type="password" name="password" placeholder="enter password" />
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+
+</form>

@@ -1,0 +1,43 @@
+<form #form360="ngForm" (ngSubmit)="addForm(form360)">
+    <div class="form-group">
+        <input email pattern="[a-z]*[1-10]@[a-z]*.com" #formamenities="ngModel" required class="form-control"
+            minlength="5" maxlength="20" [(ngModel)]="form.ftype" [ngModelOptions]="{updateOn:'blur'}" type="text" name="ftype" placeholder="form type" />
+        <div class="alert alert-danger" *ngIf="formamenities.errors?.['minlength']">
+            Enter minimum 5 characters
+        </div>
+        <div class="alert alert-danger" *ngIf="formamenities.dirty && formamenities.errors?.['required']">
+            Please enter something
+        </div>
+        <div>
+            {{formamenities.errors|json}}
+        </div>
+    </div>
+    <div class="form-group">
+        <input required class="form-control" [(ngModel)]="form.photo" type="text" name="photo"
+            placeholder="photo (provide link)" />
+
+    </div>
+    <div class="form-group">
+        <input required class="form-control" [(ngModel)]="form.dateofbirth" type="datetime" name="dateofbirth"
+            placeholder="date of birth" />
+
+    </div>
+    <div class="form-group">
+        <input required class="form-control" min="1" max="5" [(ngModel)]="form.rating" type="number" name="rating"
+            placeholder="rating" />
+
+    </div>
+
+    <div class="form-group">
+        <button [disabled]="form360.invalid" class="btn btn-primary" type="submit">Submit</button>
+
+    </div>
+</form>
+
+<!-- {{form|json}} -->
+{{form360.pristine}}
+{{form360.dirty}}
+{{form360.valid}}
+{{form360.invalid}}
+{{form360.value|json}}
+<h1 *ngIf="successMessage!=='No Form Added'" class="alert alert-success">{{successMessage}}</h1>

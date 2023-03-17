@@ -1,0 +1,18 @@
+<table class="table111">
+    <tr>
+        <th class="th1">PostId</th>
+        <th class="th1">ID</th>
+        <th class="th1">Name</th>
+        <th class="th1">Email</th>
+        <th class="th1">Body</th>
+
+    </tr>
+    <tr *ngFor="let c of cs1$|async">
+        <td class="td1">{{c.postId}}</td>
+        <td class="td1">{{c.id}}</td>
+        <td class="td1">{{c.name}}</td>
+        <td class="td1">{{c.email}}</td>
+        <td class="td1">{{c.body}}</td>
+
+    </tr>
+</table>
